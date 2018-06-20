@@ -11,7 +11,8 @@
             Age: ''
         },
         isEditMode: false,
-        isLoading: false
+        isLoading: false,
+        isAscending: 1
     },
     methods: {
         loadPeople: function (fn) {
@@ -69,6 +70,11 @@
             $.post('/home/delete', {id}, () => {
                 this.loadPeople();
             });
+        },
+
+        sortClick: function() {
+            this.people.sort((a, b) => (a.Age - b.Age) * this.isAscending);
+            this.isAscending *= -1;
         }
     }
 })
