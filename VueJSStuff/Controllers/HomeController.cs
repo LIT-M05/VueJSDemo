@@ -22,7 +22,6 @@ namespace VueJSStuff.Controllers
 
         public ActionResult GetAll()
         {
-            Thread.Sleep(3000);
             var repo = new PeopleRepository(Properties.Settings.Default.ConStr);
             return Json(repo.GetAll(), JsonRequestBehavior.AllowGet);
         }
